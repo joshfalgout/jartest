@@ -38,3 +38,9 @@ stages:
                   scanType: 'images'
                   twistlockService: 'pcc'
                   artifact: 'ubuntu-latest'
+
+                  - task: prisma-cloud-compute-scan@2
+                    inputs:
+                      scanType: 'images'
+                      twistlockService: 'pcc'
+                      artifact: 'ubuntu-latest'
