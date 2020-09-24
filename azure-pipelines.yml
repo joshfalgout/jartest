@@ -27,3 +27,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+          - task: prisma-cloud-compute-scan@2
+            inputs:
+              scanType: 'images'
+              twistlockService: 'pcc'
+              artifact: 'jartest'
