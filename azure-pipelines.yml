@@ -41,8 +41,8 @@ stages:
       inputs:
         script: 'docker build -t $(artifactory)/$(repo):$(Build.BuildId) -t $(artifactory)/$(repo):latest .'
         
-- task: prisma-cloud-compute-scan@3
-  inputs:
-    scanType: 'images'
-    twistlockService: 'pcc'
-    artifact: '$(artifactory)/$(repo):$(Build.BuildId)'
+    - task: prisma-cloud-compute-scan@3
+      inputs:
+        scanType: 'images'
+        twistlockService: 'pcc'
+        artifact: '$(artifactory)/$(repo):$(Build.BuildId)'
