@@ -1,4 +1,5 @@
 # Docker
+
 # Build a Docker image 
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -20,15 +21,19 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
+#    - task: Docker@2
+#      displayName: Build an image
+#      inputs:
+#        command: build
+#        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+#        tags: |
+#          $(tag)
+#          - task: prisma-cloud-compute-scan@2
+#            inputs:
+#              scanType: 'images'
+#              twistlockService: 'pcc'
+#              artifact: 'joshfalgout/jartest'
+#
+    - task: CmdLine@2
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-          - task: prisma-cloud-compute-scan@2
-            inputs:
-              scanType: 'images'
-              twistlockService: 'pcc'
-              artifact: 'joshfalgout/jartest'
+        script: 'docker build -t $(artifactory)/$(repo):$(Build.BuildId) -t $(artifactory)/$(repo):latest .'
