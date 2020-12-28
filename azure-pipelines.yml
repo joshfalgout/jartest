@@ -10,10 +10,8 @@ resources:
 - repo: self
 
 variables:
-  - name: artifactory
-    value: joshfalgout 
-  - name: repo
-    value: azure 
+  artifactory: joshfalgout 
+  repo: azure 
   tag: '$(Build.BuildId)'
 
 
