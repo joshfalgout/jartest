@@ -45,6 +45,7 @@ stages:
         command: 'build'
         Dockerfile: '**/Dockerfile'
         repository: '$(artifactory)/$(repo)'
+        tags: latest
         
 
     - task: CmdLine@2
