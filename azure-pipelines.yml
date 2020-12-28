@@ -42,10 +42,12 @@ stages:
 #        script: 'docker build -t $(artifactory)/$(repo):$(Build.BuildId) -t $(artifactory)/$(repo):latest .'
     - task: Docker@2
       inputs:
+        repository: '$(artifactory)/$(repo)'
         command: 'build'
         Dockerfile: '**/Dockerfile'
-        repository: '$(artifactory)/$(repo)'
-        tags: latest
+        tags: |
+          latest
+          mytest
         
 
     - task: CmdLine@2
