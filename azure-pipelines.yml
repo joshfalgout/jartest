@@ -37,10 +37,16 @@ stages:
 #              twistlockService: 'pcc'
 #              artifact: 'joshfalgout/jartest'
 #
-    - task: CmdLine@2
+#    - task: CmdLine@2
+#      inputs:
+#        script: 'docker build -t $(artifactory)/$(repo):$(Build.BuildId) -t $(artifactory)/$(repo):latest .'
+    - task: Docker@2
       inputs:
-        script: 'docker build -t $(artifactory)/$(repo):$(Build.BuildId) -t $(artifactory)/$(repo):latest .'
-        
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+        tags: |
+          $(Build.BuildId)
+          latest
     - task: prisma-cloud-compute-scan@3
       inputs:
         scanType: 'images'
