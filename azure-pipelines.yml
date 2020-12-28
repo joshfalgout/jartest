@@ -45,4 +45,4 @@ stages:
       inputs:
         scanType: 'images'
         twistlockService: 'pcc'
-        artifact: '$(artifactory)/$(repo):$(Build.BuildId)'
+        artifact: "$(artifactory)/$(repo):$(Build.BuildId)"
