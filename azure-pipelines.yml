@@ -44,9 +44,7 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: '**/Dockerfile'
-        tags: |
-          $(Build.BuildId)
-          latest
+        tags: '$(Build.BuildId)'
 
     - task: CmdLine@2
       inputs:
