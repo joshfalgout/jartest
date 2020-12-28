@@ -47,7 +47,7 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: |
           latest
-          mytest
+          $(repo)
         
 
     - task: CmdLine@2
