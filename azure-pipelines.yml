@@ -44,7 +44,7 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: '**/Dockerfile'
-        repository: '$(artifactory)/$(repo):$(Build.BuildId)'
+        repository: '$(artifactory)/$(repo)'
         
 
     - task: CmdLine@2
